@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Prochain 102</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .wrapper {text-align: center;}
+        section {
+            margin: 20px;
+            width: 100px;
+            background: #68ff76;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 5px 5px 5px #ddd;
+        }
+        section:first-child { margin-right: 0; }
+        p { margin: 0; }
+        p.time { font-size: 4em; }
+        p.destination { height: 1em; overflow: hidden; }
+    </style>
 </head>
 <body>
-{% for time in times %}
-    <p><span class="destination">{{ time[0] }}</span> : {{ time[1] }} mn</p>
-{% endfor %}
+<div class="wrapper">
+    {% for time in times %}
+        <section>
+            <p class="destination">{{ time[0] }}</p>
+            <p class="time">{{ time[1] }}</p>
+        </section>
+    {% endfor %}
+</div>
 </body>
 </html>
