@@ -33,7 +33,7 @@
 
         section {
             margin: 10px 20px 10px 0;
-            width: 100px;
+            width: 110px;
             border-radius: 5px;
             text-align: center;
             padding: 10px;
@@ -48,8 +48,13 @@
             margin: 0;
         }
 
-        p.time {
+        p.minutes {
             font-size: 4em;
+        }
+
+        p.time {
+            font-size: 0.8em;
+            letter-spacing: 5px;
         }
 
         .line section p.destination {
@@ -100,7 +105,7 @@
                 var $section = $line.find("section").eq(i);
                 console.log(times[i][0] + ', ' + times[i][1]);
                 $section.find(".destination").text(times[i][0]);
-                $section.find(".time").text(times[i][1]);
+                $section.find(".minutes").text(times[i][1]);
             }
         });
     }

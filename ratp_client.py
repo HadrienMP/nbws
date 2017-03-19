@@ -1,4 +1,6 @@
 import re
+from datetime import datetime, timedelta
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,7 +12,10 @@ def get_next_stop_times(url):
 
     times = list()
     for i in range(0, len(table_cells), 2):
-        times.append((table_cells[i].string, __to_int(table_cells[i+1].string)))
+        destination = table_cells[i].string
+        minutes_to_bus = __to_int(table_cells[i + 1].string)
+        time = datetime.now() + timedelta(minutes=minutes_to_bus)
+        times.append((destination, minutes_to_bus, time))
 
     return times
 
