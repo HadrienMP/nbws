@@ -13,13 +13,15 @@
         .wrapper {
             text-align: center;
         }
-
+        .line:first-child {
+            margin-top: 30px;
+        }
         .line:nth-child(1) section {
             background: #68ff76;
         }
 
         .line:nth-child(2) section {
-            background: #54c3ff;
+            background: #56e4ff;
         }
 
         .line p {
@@ -29,19 +31,20 @@
             letter-spacing: 4px;
             margin: 20px 0 0;
             font-size: 0.8em;
+            text-transform: uppercase;
         }
 
         section {
             margin: 10px 20px 10px 0;
             width: 100px;
-            border-radius: 10px;
+            border-radius: 5px;
             text-align: center;
             padding: 10px;
             display: inline-block;
-            box-shadow: 5px 5px 5px #ddd;
+{#            box-shadow: 5px 5px 5px #ddd;#}
         }
 
-        section:first-child {
+        section:nth-of-type(1) {
             margin-left: 20px;
         }
 
@@ -58,6 +61,21 @@
             height: 1em;
             overflow: hidden;
         }
+
+        button#refresh {
+            width: 260px;
+            padding: 10px;
+            margin: 30px auto 20px;
+            display: block;
+            border-radius: 5px;
+{#            box-shadow: 5px 5px 5px #ddd;#}
+            border: none;
+            background: #575757;
+            color: white;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
     </style>
 </head>
 <body>
@@ -66,10 +84,11 @@
         {% include "line.html" %}
     {% endfor %}
 </div>
+<button id="refresh">Actualiser</button>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
     $(function () {
-        setInterval(update, 10 * 1000);
+        $("#refresh").click(update);
     });
     function update() {
         $('.line').each(function () {
