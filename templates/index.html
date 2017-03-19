@@ -22,7 +22,9 @@
             background: #54c3ff;
         }
 
-        .line p {}
+        .line p {
+        }
+
         .line p.description {
             letter-spacing: 4px;
             margin: 20px 0 0;
@@ -60,17 +62,17 @@
 </head>
 <body>
 <div class="wrapper">
-    {% for stop, times in lines.items() %}
-        <div class="line">
-            <p class="description">{{ stop }}</p>
-            {% for time in times %}
-                <section>
-                    <p class="destination">{{ time[0] }}</p>
-                    <p class="time">{{ time[1] }}</p>
-                </section>
-            {% endfor %}
-        </div>
-    {% endfor %}
 </div>
+<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.get("{{ url_for('line', key='Maison -> Darty') }}", function (data) {
+            $(".wrapper").append(data);
+        });
+        $.get("{{ url_for('line', key='Darty -> Maison') }}", function (data) {
+            $(".wrapper").append(data);
+        });
+    });
+</script>
 </body>
 </html>

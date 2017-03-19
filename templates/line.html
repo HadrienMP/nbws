@@ -1,0 +1,9 @@
+<div class="line">
+    <p class="description">{{ stop }}</p>
+    {% for time in times %}
+        <section>
+            <p class="destination">{{ time[0] }}</p>
+            <p class="time">{{ time[1] }}</p>
+        </section>
+    {% endfor %}
+</div>
