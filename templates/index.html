@@ -22,8 +22,15 @@
             background: #54c3ff;
         }
 
+        .line p {}
+        .line p.description {
+            letter-spacing: 4px;
+            margin: 20px 0 0;
+            font-size: 0.8em;
+        }
+
         section {
-            margin: 20px 20px 20px 0;
+            margin: 10px 20px 10px 0;
             width: 100px;
             border-radius: 10px;
             text-align: center;
@@ -36,7 +43,7 @@
             margin-left: 20px;
         }
 
-        p {
+        .line section p {
             margin: 0;
         }
 
@@ -44,7 +51,8 @@
             font-size: 4em;
         }
 
-        p.destination {
+        .line section p.destination {
+            margin-top: 5px;
             height: 1em;
             overflow: hidden;
         }
@@ -54,7 +62,7 @@
 <div class="wrapper">
     {% for stop, times in lines.items() %}
         <div class="line">
-            <p>{{ stop }}</p>
+            <p class="description">{{ stop }}</p>
             {% for time in times %}
                 <section>
                     <p class="destination">{{ time[0] }}</p>
