@@ -5,6 +5,9 @@ import pytz
 import requests
 from bs4 import BeautifulSoup
 
+utc = pytz.utc
+paris = pytz.timezone("Europe/Paris")
+
 
 def get_next_stop_times(url):
     r = requests.get(url)
@@ -15,7 +18,7 @@ def get_next_stop_times(url):
     for i in range(0, len(table_cells), 2):
         destination = table_cells[i].string
         minutes_to_bus = __to_int(table_cells[i + 1].string)
-        time = datetime.now().replace(tzinfo=pytz.timezone("Europe/Paris")) + timedelta(minutes=minutes_to_bus)
+        time = utc.localize(datetime.utcnow()).astimezone(paris) + timedelta(minutes=minutes_to_bus)
         times.append((destination, minutes_to_bus, time))
 
     return times
