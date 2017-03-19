@@ -3,12 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_next_stop_times():
-    return __get_raw_times()
-
-
-def __get_raw_times():
-    r = requests.get("http://www.ratp.fr/horaires/fr/ratp/bus/prochains_passages/PP/B102/102_15_42/R")
+def get_next_stop_times(url):
+    r = requests.get(url)
     soup = BeautifulSoup(r.text, "html.parser")
     table_cells = soup.find(id="prochains_passages").select("tr td")
 
