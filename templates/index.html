@@ -66,13 +66,18 @@
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        update();
+        setInterval(update, 10*1000);
+    });
+    function update() {
+        $('.wrapper').html("");
         $.get("{{ url_for('line', key='Maison -> Darty') }}", function (data) {
             $(".wrapper").append(data);
         });
         $.get("{{ url_for('line', key='Darty -> Maison') }}", function (data) {
             $(".wrapper").append(data);
         });
-    });
+    }
 </script>
 </body>
 </html>
