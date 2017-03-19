@@ -62,20 +62,29 @@
 </head>
 <body>
 <div class="wrapper">
+    {% for stop, times in lines.items() %}
+        {% include "line.html" %}
+    {% endfor %}
 </div>
 <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
     $(function () {
-        update();
-        setInterval(update, 10*1000);
+        setInterval(update, 10 * 1000);
     });
     function update() {
-        $('.wrapper').html("");
-        $.get("{{ url_for('line', key='Maison -> Darty') }}", function (data) {
-            $(".wrapper").append(data);
+        $('.line').each(function () {
+            updateLine($(this));
         });
-        $.get("{{ url_for('line', key='Darty -> Maison') }}", function (data) {
-            $(".wrapper").append(data);
+    }
+    function updateLine($line) {
+        var key = $line.find(".description").text();
+        $.get("{{ url_for('line', key='') }}" + key, function (times) {
+            for (var i = 0; i < times.length; i++) {
+                var $section = $line.find("section").eq(i);
+                console.log(times[i][0] + ', ' + times[i][1]);
+                $section.find(".destination").text(times[i][0]);
+                $section.find(".time").text(times[i][1]);
+            }
         });
     }
 </script>
