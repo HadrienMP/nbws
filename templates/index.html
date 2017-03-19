@@ -5,7 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Prochain 102</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
-    <link href="url_for('static', filename='css/main.css')" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+
+        .line:nth-child(1) section {
+            background: #68ff76;
+        }
+
+        .line:nth-child(2) section {
+            background: #54c3ff;
+        }
+
+        section {
+            margin: 20px 20px 20px 0;
+            width: 100px;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 5px 5px 5px #ddd;
+        }
+
+        section:first-child {
+            margin-left: 20px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p.time {
+            font-size: 4em;
+        }
+
+        p.destination {
+            height: 1em;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
