@@ -21,7 +21,7 @@ body {
 .line p.description {
     letter-spacing: 4px;
     margin: 20px 0 0;
-    font-size: 0.8em;
+    font-size: 0.75em;
     text-transform: uppercase;
 }
 
@@ -48,20 +48,19 @@ p.minutes {
 
 p.time {
     font-size: 0.8em;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
     position: relative;
     left: 3px;
 }
 
 .line section p.destination {
-    margin-top: 5px;
-    height: 1em;
+    height: 1.1em;
     overflow: hidden;
 }
 
-button#refresh {
-    width: 284px;
-    padding: 20px 0;
+#refresh {
+    width: 286px;
+    padding: 25px 0;
     margin: 30px auto 20px;
     display: block;
     border-radius: 5px;
@@ -70,13 +69,16 @@ button#refresh {
     color: white;
     font-size: 0.8em;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    text-align: center;
+    font-weight: normal;
 }
 
-button#refresh:active {
+#refresh:active {
     background: orange;
+    outline: none;
 }
 
-button#refresh:focus {
+#refresh:focus {
     outline: none;
 }

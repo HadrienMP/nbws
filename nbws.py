@@ -30,7 +30,11 @@ def line(key):
 
 
 def to_display(times):
-    return [(time[0], time[1], time[2].strftime('%Hh%M')) for time in times]
+    return [(to_display_destination(time), time[1], time[2].strftime('%Hh%M')) for time in times]
+
+
+def to_display_destination(time):
+    return str(time[0]).replace("-", " ")
 
 
 if __name__ == '__main__':
