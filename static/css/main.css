@@ -73,6 +73,10 @@ button#refresh {
     letter-spacing: 3px;
 }
 
+button#refresh:active {
+    background: orange;
+}
+
 button#refresh:focus {
     outline: none;
 }
